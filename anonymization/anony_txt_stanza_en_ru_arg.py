@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import sys
+import logging
 from anonymization import Anonymization, AnonymizerChain, EmailAnonymizer, UriAnonymizer, MacAddressAnonymizer, PhoneNumberAnonymizer, INNAnonymizer, NamedEntitiesAnonymizer3
 
 def anony_txt(txtFile):
@@ -22,9 +23,9 @@ def anony_txt(txtFile):
     
 def main() :
     if len(sys.argv) != 1 :
-        log("Anonymization of bilingual txt file")
-        log("")
-        log("Usage: anony_txt_stanza_en_ru_arg bilingual_txt_file")
+        logging.info("Anonymization of bilingual txt file")
+        logging.info("")
+        logging.info("Usage: anony_txt_stanza_en_ru_arg bilingual_txt_file")
         sys.exit(-1)
 
     else:
