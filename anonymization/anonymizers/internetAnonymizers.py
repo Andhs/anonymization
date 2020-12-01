@@ -20,7 +20,9 @@ class UriAnonymizer():
         self.anonymization = anonymization
     
     def anonymize(self, text: str) -> str:
-        return self.anonymization.regex_anonymizer(text, r'(?:(?:[^:/?# ]+):)(?://(?:[^/?#]*))(?:[^?\s]*)', 'uri')
+    # Усовершенствовал, чтобы охватить www.effectiff.com
+        return self.anonymization.regex_anonymizer(text, r"(?i)\b((?:https?://|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))", 'uri')
+#        return self.anonymization.regex_anonymizer(text, r'(?:(?:[^:/?# ]+):)(?://(?:[^/?#]*))(?:[^?\s]*)', 'uri')
 
 class MacAddressAnonymizer():
     '''

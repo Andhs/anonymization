@@ -20,7 +20,9 @@ class PhoneNumberAnonymizer():
 
         for phone_nb_format in formats:
             safeFormat = re.escape(phone_nb_format.replace('#', '_'))
-            regex = re.compile('\\b' + safeFormat.replace('_', '\d') + '\\b')
+           # Чтобы плюс в начале не съедался границей слова, понадобилось более сложное выражение (negative lookbehind)
+            regex = re.compile("(?<!\\w)" + safeFormat.replace('_', '\d') + '\\b')
+#            regex = re.compile('\\b' + safeFormat.replace('_', '\d') + '\\b')
             
             text = self.anonymization.regex_anonymizer(text, regex, 'phone_number')
 
