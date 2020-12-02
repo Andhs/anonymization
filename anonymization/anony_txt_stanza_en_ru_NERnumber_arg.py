@@ -20,13 +20,13 @@ def anony_txt(txtFile):
             anline_en = anon_en.anonymize(line.split("\t")[0])
             NERnumber_en = cfg.NERnumber
             cfg.NERnumber = 0
-            anline_ru = anon_ru.anonymize(line.split("\t")[1])
+            anline_ru = anon_ru.anonymize(line.split("\t")[1].strip())
             NERnumber_ru = cfg.NERnumber
             if NERnumber_en == NERnumber_ru:
-                anfile.write(anline_en + "\t" + anline_ru)
+                anfile.write(anline_en + "\t" + anline_ru + "\n")
             else:
                 anfile.write(line)
-                rejfile.write(anline_en + "\t" + anline_ru)
+                rejfile.write(anline_en + "\t" + anline_ru + "\n")
             line = f.readline()
         anfile.close()
         rejfile.close()

@@ -16,8 +16,8 @@ def anony_txt(txtFile):
         line = f.readline()
         while line:
             anline_en = anon_en.anonymize(line.split("\t")[0])
-            anline_ru = anon_ru.anonymize(line.split("\t")[1])
-            anfile.write(anline_en + "\t" + anline_ru)
+            anline_ru = anon_ru.anonymize(line.split("\t")[1].strip())
+            anfile.write(anline_en + "\t" + anline_ru + "\n")
             line = f.readline()
         anfile.close()
     
