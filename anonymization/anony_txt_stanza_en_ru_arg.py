@@ -23,9 +23,9 @@ def anony_txt(txtFile):
     
 def main() :
     if len(sys.argv) != 2 :
-        logging.info("Anonymization of bilingual txt file")
-        logging.info("")
-        logging.info("Usage: anony_txt_stanza_en_ru_arg bilingual_txt_file")
+        logging.error("Anonymization of bilingual txt file")
+        logging.error("")
+        logging.error("Usage: anony_txt_stanza_en_ru_arg bilingual_txt_file")
         sys.exit(-1)
 
     else:
