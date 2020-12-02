@@ -32,10 +32,10 @@ def anony_txt(txtFile):
         rejfile.close()
     
 def main() :
-    if len(sys.argv) != 1 :
-        log("Anonymization of bilingual txt file")
-        log("")
-        log("Usage: anony_txt_stanza_en_ru_arg bilingual_txt_file")
+    if len(sys.argv) != 2 :
+        logging.error("Anonymization of bilingual txt file")
+        logging.error("")
+        logging.error("Usage: anony_txt_stanza_en_ru_arg bilingual_txt_file")
         sys.exit(-1)
 
     else:

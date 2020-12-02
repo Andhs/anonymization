@@ -202,7 +202,8 @@ class _NamedEntitiesAnonymizer4():
         import stanza
         from spacy_stanza import StanzaLanguage
         
-#        stanza.download('en', processors='tokenize,pos,lemma,depparse,ner')  # will take a while - один раз достаточно запустить
+        stanza.download('en', processors='tokenize,pos,lemma,depparse,ner')  # will take a while - один раз достаточно запустить
+        stanza.download('ru', processors='tokenize,pos,lemma,depparse,ner')  # will take a while - один раз достаточно запустить
         
         self.anonymization = anonymization
         self.snlp = stanza.Pipeline(lang=model, processors='tokenize,ner')
